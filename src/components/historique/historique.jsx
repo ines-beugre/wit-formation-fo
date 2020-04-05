@@ -39,7 +39,7 @@ class Historique extends Component {
         const pastFormations = this.filtersPast();
 
         return (
-            <div className="historique">
+            <div className="formations">
                 
                 <h1>Liste de formations passées</h1>
 
