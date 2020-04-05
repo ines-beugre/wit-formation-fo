@@ -1,26 +1,7 @@
 import React, { Component} from 'react';
-import TimeField from "react-simple-timefield";
 import "./add-module.css";
 
-const defaultModule = {
-    name: "",
-    startTime: "12:12",
-    endTime: "",
-    description: "",
-}
-
 export class AddModule extends Component {
-
-    constructor(...args) {
-        super(...args);
-
-        this.state = {
-            module: defaultModule,
-            startTime: '12:34',
-            endTime: '12:00',
-        };
-        this.onTimeChange = this.onTimeChange.bind(this);
-    }
 
     changeInputModule = (e) => {
         let { module } = this.props;
@@ -35,15 +16,8 @@ export class AddModule extends Component {
 
     }
 
-    onTimeChange(time) {
-        let start = this.state.startTime;
-        let end = this.state.endTime
-        this.setState({time});
-    }
-
     render(){
         const { module } = this.props;
-        const {startTime, endTime} = this.state;
         console.log('module', module);
 
         return(
@@ -53,7 +27,9 @@ export class AddModule extends Component {
                     <label>Module(s):</label>
                 </div>
 
-                <div className="add-module-details">
+                {/* <div className="add-module-details"> */}
+                <div className="add-formation-module">
+
                     
                     <div className="add-formation-module-nom">
                         <label>Nom du module: </label>
@@ -68,29 +44,23 @@ export class AddModule extends Component {
 
                     <div className="add-formation-module-start">
                         <label>Heure de début: </label>
-
-                        <TimeField name="startTime" value={module.startTime} onChange={this.changeInputModule} 
-                            style={{
-                                fontSize: '1.0em',
-                                width: 62,
-                                padding: '5px 8px',
-                            }}
+                        <input 
+                            type="time" 
+                            name="startTime"
+                            onChange={this.changeInputModule} 
                         />
                     </div>
                 
                     <div className="add-formation-module-end">
                         <label>Heure de fin: </label>
-
-                        <TimeField name="endTime"  value={module.endTime} onChange={this.changeInputModule} 
-                            style={{
-                                fontSize: '1.0em',
-                                width: 62,
-                                padding: '5px 8px',
-                            }}
+                        <input 
+                            type="time" 
+                            name="endTime"
+                            onChange={this.changeInputModule} 
                         />
                     </div>
                 
-                    <div className="add-formation-module">
+                    <div className="add-formation-module-description">
                         <label>Description: </label>
                         <input
                             className="module-name"
@@ -109,6 +79,13 @@ export class AddModule extends Component {
     }
 }
 
+ {/* <TimeField name="startTime" value={module.startTime} onChange={this.changeInputModule} 
+                            style={{
+                                fontSize: '1.0em',
+                                width: 62,
+                                padding: '5px 8px',
+                            }}
+                        /> */}
 
 {/* <div className="add-formation-module">
                     <label>Heure de début: </label>

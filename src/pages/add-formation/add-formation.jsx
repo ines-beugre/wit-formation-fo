@@ -105,6 +105,10 @@ class AddFormation  extends Component {
         console.log(e);
     }
 
+    handleSubmit(e) {
+        e.preventDefault();
+    }
+    
     render() {
         const { formation } = this.state;
 

@@ -1,8 +1,12 @@
-.add-module-details {
+.add-formation-module {
     display: flex;
 }
 
-.add-module > div{
+.add-formation-module > div{
     margin-left: 3px;
     margin-right: 3px;
+}
+
+.add-formation-module input[type=time] {
+    height: 36.19px;
 }

@@ -32,10 +32,10 @@ class Formations extends React.Component {
         let filteredFormations = formations;
         const today = moment(Date.now()).format('YYYY-MM-DD');
         filteredFormations = filteredFormations
-                                .filter(formation => formation.date > today)
+                                .filter(formation => formation.date >= today)
                                 .sort(function(a, b){
                                     return !a.name ? 1 : !b.name ? -1 : a.name.toString().localeCompare(b.name);
-                                })
+                                })        
         return filteredFormations;
     }
 

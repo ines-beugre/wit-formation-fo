@@ -61,6 +61,7 @@
 .add-formation input[type=number],
 .add-formation input[type=tel],
 .add-formation input[type=email],
+.add-formation input[type=time],
 .add-formation textarea {
     border: 1.594px solid #e6e6e6;
     color: #383D44;
