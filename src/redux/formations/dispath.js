@@ -43,8 +43,8 @@ export const addFormation = (formation) => {
 
     return (dispatch) => {
         dispatch(actions.showPending(true));
-        gestionFormation.add(formation)
-            .then(formationToAdd => {
+        return gestionFormation.add(formation)
+            .then(formation => {
                 dispatch(actions.showFormation(formation));
                 dispatch(actions.showPending(false));
                 return Promise.resolve();

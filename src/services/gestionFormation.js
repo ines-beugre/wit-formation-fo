@@ -41,7 +41,6 @@ class GestionFormation extends Component {
       return  axios
         .post('http://localhost:8080/api/formations', formation)
         .then(response => {
-            console.log('form-to-123', formation);
             console.log('response', response)
         })
         .catch(err => {

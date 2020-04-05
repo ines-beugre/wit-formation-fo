@@ -76,6 +76,7 @@ class AddFormation  extends Component {
     submitHandler = async (e) => {
         e.preventDefault();
         console.log(this.state);
+        e.target.reset();
         this.addFormation();
     }
       
@@ -83,7 +84,14 @@ class AddFormation  extends Component {
         const { formation } = this.state;
         console.log('form-to-add', formation);
         const { dispatch } = this.props;
+        console.log('dispatch', dispatch)
         dispatch(addFormation(formation))
+        .then(() => {
+            this.setState({formation: defaultFormation
+            });
+        })
+        
+
         console.log('add-formation');
 
     }
@@ -107,8 +115,13 @@ class AddFormation  extends Component {
 
     handleSubmit(e) {
         e.preventDefault();
+        let resetFormation = {};
+        // const formation = this.state.formation;
+        e.target.reset();
+        this.setState({...resetFormation});
+ 
     }
-    
+
     render() {
         const { formation } = this.state;
 
