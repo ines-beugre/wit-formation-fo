@@ -1,0 +1,12 @@
+/*
+ * action types
+ */
+const SHOW_FORMATIONS = "SHOW_FORMATIONS"
+const SHOW_FORMATION = "SHOW_FORMATION"
+const SHOW_PENDING = "SHOW_PENDING"
+
+export default {
+    SHOW_FORMATIONS,
+    SHOW_FORMATION,
+    SHOW_PENDING
+}

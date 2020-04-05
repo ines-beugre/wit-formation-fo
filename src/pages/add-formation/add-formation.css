@@ -1,0 +1,217 @@
+.add-formation {
+    margin-top: 20px;
+    font-size: calc(12px + 0.4vw);
+    font-weight: bold;
+    display:flex;
+    flex-direction: column;
+}
+
+.add-formation > div {
+    width : 100%;
+    display:flex;
+    align-items: center;
+    margin-bottom: 5px;
+    margin-top: 5px;
+}
+
+.div-info-date > div{
+    margin-bottom: 10px;
+}
+
+.add-formation > div > label,
+.add-formation .div-info-formation > label {
+    width:250px;
+    min-width:200px;
+    text-align: right;
+    margin-right: 5px;
+    color: #4D4D4D;
+}
+
+.add-formation input,
+.add-formation textarea
+{
+    width:100%;
+    padding:7px;
+    font-family: "Avenir Next bold", sans-serif;
+    color: #FFA500;
+    font-size: calc(12px + 0.4vw);
+}
+
+.add-formation .div-info-date {
+    flex-wrap: wrap;
+}
+
+.add-formation .add-formation-footer {
+    justify-content: space-between;
+
+}
+
+.add-formation .div-info-formation {
+    display: flex;
+    flex: 1;
+    align-items: center;
+}
+
+.div-info-formation.image {
+    justify-content: center;
+}
+
+.add-formation input[type=text],
+.add-formation input[type=date],
+.add-formation input[type=number],
+.add-formation input[type=tel],
+.add-formation input[type=email],
+.add-formation textarea {
+    border: 1.594px solid #e6e6e6;
+    color: #383D44;
+    font-family: "Avenir Next bold", sans-serif;
+    text-transform: capitalize;
+    font-size: 1.0em;
+}
+
+.add-formation input[type=date] {
+    text-transform: none;
+}
+
+.add-formation input:focus,
+.add-formation textarea:focus {
+    border: 0.07em solid #FFA500;
+    outline: none;
+}
+
+.input-search input:focus{
+    outline: none;
+}
+@media screen and (max-width: 411px){
+    .add-formation > div > label,
+    .add-formation .div-info-formation > label {
+        width: 100px;
+        min-width: 137px;
+        text-align: left;
+    }
+
+    .div-info-formation input[type=text] [type=date]{
+        font-family: "Avenir Next bold", sans-serif;
+        color: #383D44;
+        text-transform: capitalize;
+        font-size: 1.0em;
+    }
+}
+
+.add-formation-image {
+    width: 50px;
+    height: 50px;
+}
+.div-info-formation.image {
+    display: flex;
+    flex-direction: column;
+}
+.add-formation input[type=file]{
+width: 50%;
+padding: 7px;
+}
+.formation-logo {
+    width: 30px;
+    height: 30px;
+}
+
+.add-formation-logo {
+    width: 30px;
+    height: 30px;
+}
+
+.add-formation-footer > div {
+    margin-left: 3px;
+    margin-right: 3px;
+}
+
+.add-formation-footer input[type=text]{
+    border: 1.594px solid #e6e6e6;
+    color: #383D44;
+    font-family: "Avenir Next bold", sans-serif;
+    text-transform: capitalize;
+    font-size: 1.0em;
+}
+
+.add-formation-footer .add-formation-logo{
+    margin-right: 0;
+}
+
+.add-formation-footer .add-formation-email{
+    margin-right: 0;
+}
+
+.add-formation-footer .footer {
+    background-color: blue;
+}
+
+.add-formation-button {
+    justify-content: center;
+}
+
+.btn.btn-valider {
+    color: white;
+    background-color: #FFA500;
+    border: #FFA500 4px solid;
+    padding: 2px 22px 3px 22px;
+    width: 104px;
+    border-radius: 9px;
+    font-size: 14px;
+    outline: none;
+}
+/*.add-formation label {*/
+
+/*}*/
+
+/*.div-info-formation {*/
+/*    width: 100%;*/
+/*}*/
+
+/*.div-info-formation label {*/
+/*    width: 50%;*/
+/*    padding-right: 0;*/
+/*    text-align: left;*/
+
+
+/*}*/
+
+/*.div-info-formation {*/
+/*    margin: 5px 10px 10px 5px;*/
+/*}*/
+
+/*.div-info-formation input {*/
+/*    padding-left: 10px;*/
+/*    padding-right: 10px;*/
+/*    margin-right: 10px;*/
+/*    margin-left: 10px;*/
+/*    width: 50%;*/
+/*    height: 2em;*/
+/*    max-height: 2em;*/
+/*    border: 0.07em solid lightgray;*/
+/*    background-color: white;*/
+/*    outline: none;*/
+/*}*/
+
+/*.div-info-date input {*/
+/*    padding-left: 10px;*/
+/*    padding-right: 10px;*/
+/*    margin-right: 5px;*/
+/*    margin-left: 5px;*/
+/*    width: 40%;*/
+/*    height: 2em;*/
+/*    max-height: 2em;*/
+/*    border: 0.07em solid lightgray;*/
+/*    background-color: white;*/
+/*    outline: none;*/
+/*}*/
+
+/*.div-info-formation input[type=text] [type=date]{*/
+/*    font-family: "Avenir Next bold", sans-serif;*/
+/*    color: #383D44;*/
+/*    text-transform: capitalize;*/
+/*    font-size: 1.0em;*/
+/*}*/
+
+
+
+

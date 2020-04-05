@@ -1,0 +1,79 @@
+.formations {
+    margin-top: 3%;
+}
+
+.formations h1 {
+    /*font-size: 3vw;*/
+    font-size: calc(26px + 0.4vw);
+    margin-top: 21px;
+    font-family: "Avenir Next bold", sans-serif;
+    /*font-family: "system-ui, -apple-system ", sans-serif;*/
+    color: #383D44;
+}
+
+.formations-pending {
+    color: 	#F1910C;
+}
+
+.liste-formations {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.ligne-formation {
+    border-radius: 8px;
+    margin: 10px 20px 20px 20px;
+    box-shadow: 0 0 30px 0 rgba(160, 160, 160, 0.6)
+}
+
+/* .formations a {
+    text-decoration: none;
+} */
+
+.image {
+    width: 300px;
+    height: 200px;
+}
+
+.formations-content {
+    color: #383D44;
+}
+
+.ligne-formation .formations-content .formations-name {
+    font-family: "Avenir Next bold", sans-serif;
+    font-size: calc(12px + 0.4vw);
+    color: 	#F1910C;
+    text-transform: capitalize;
+}
+
+.formations-date {
+    font-family: "Avenir Next bold", sans-serif;
+    font-size: calc(10px + 0.4vw);
+    color: #383D44;
+}
+
+
+.div-search {
+    margin-bottom: 5px;
+}
+
+.input-search {
+    background: white;
+    border: 1px solid #e6e6e6;
+    font-size: calc(12px + 0.4vw);
+    border-radius: 4px;
+    font-family: "Avenir Next bold", sans-serif;
+    outline: none;
+    width: 70%;
+    height: 34px;
+}
+
+@media screen and (max-width: 1350px) and (min-width: 500px) {
+    .ligne-formation {
+        /*width: 34vw;*/
+        /*height: 200px;*/
+
+    }
+}

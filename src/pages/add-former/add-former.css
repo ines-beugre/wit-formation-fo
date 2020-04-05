@@ -1,0 +1,9 @@
+.add-formation-former {
+   
+    display: flex;
+}
+
+.add-formation-former > div{
+    margin-left: 3px;
+    margin-right: 3px;
+}
