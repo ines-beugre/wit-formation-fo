@@ -5,7 +5,8 @@ import thunk from 'redux-thunk'
 import {applyMiddleware, createStore, combineReducers} from 'redux';
 import formationsReducer from './redux/formations/reducers';
 import filtersReducer from './redux/filters/reducers';
-import './node_modules/@fortawesome/fontawesome-free/css/all.min.css';
+// import '@fortawesome/fontawesome-free/css/all.min.css';
+import '@fortawesome/fontawesome-free/css/all.min.css';
 import Main from './main';
 
 const reducer = combineReducers({
