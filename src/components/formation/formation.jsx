@@ -47,6 +47,7 @@ class Formation extends Component {
     render() {
         const { formation, isPending } = this.props;
         const modules = formation.modules;
+        console.log('modules', modules)
         const formers = formation.formers;
 
         return (
@@ -76,6 +77,7 @@ class Formation extends Component {
                                     {
                                         modules &&
                                         modules.map((module) => {
+                                            console.log('module', module)
 
                                             let i = modules.indexOf(module);
                                             return (
