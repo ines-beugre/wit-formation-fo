@@ -3,9 +3,11 @@ import './add-formation.css';
 import images from '../data-base-64';
 import { connect } from 'react-redux';
 import { addFormation } from '../../redux/formations/dispath';
-import  GestionFormation from '../../services/gestionFormation';
+import { sendToast } from "../../redux/toast/dispatch";
 import { AddFormer } from '../add-former/add-former';
 import { AddModule } from '../add-module/add-module';
+import moment from "moment";
+import 'moment/locale/fr';
 
 const defaultFormation = {
     name: "",
@@ -41,8 +43,6 @@ const defaultFormation = {
     ],
 }
 
-const gestionFormation = new GestionFormation();
-
 class AddFormation  extends Component {
 
     constructor(props) {
@@ -57,7 +57,6 @@ class AddFormation  extends Component {
         let formation = this.state.formation;
         formation[e.currentTarget.name] = e.currentTarget.value;
         this.setState({formation: formation});
-        // console.log("formation_set_state", this.state.formation);
     }
 
     getImage = (e) => {
@@ -75,16 +74,52 @@ class AddFormation  extends Component {
     submitHandler = async (e) => {
         e.preventDefault();
         e.target.reset();
-        this.addFormation();
+        this.checkForm();
     }
-      
+    
+    checkDate = (formation) => {
+        const today = moment(Date.now()).format('YYYY-MM-DD');
+
+        if (formation.deadline.trim() !== "" && today >= formation.date) {
+            return "La date de la formation doit être supérieure à la date d'aujourd'hui";
+        }
+
+        if (formation.deadline.trim() !== "" && formation.date > formation.deadline ) {
+            return "La date de la formation doit être inférieure à la date limite d'inscription.";
+        }
+
+        const startTime = formation.modules.map(module => module.startTime);
+        const endTime = formation.modules.map(module => module.endTime);
+
+        if (startTime > endTime) {
+            return `L'heure de début de la formation: ${startTime} doit être inférieure à la l'heure de fin: ${endTime}.`
+        }
+
+        return null;
+    };
+
+    checkForm() {
+        const {formation} = this.state;
+        const {dispatch} = this.props;
+        const error = this.checkDate(formation);
+
+        if(error) {
+            dispatch(
+                sendToast(
+                    "error",
+                    error));
+        } else {
+            this.addFormation();
+        }
+    }
+
     addFormation = () => {
         const { formation } = this.state;
         const { dispatch } = this.props;
         dispatch(addFormation(formation))
         .then(() => {
             this.setState({formation: defaultFormation
-            });
+            })
         })
     }
 
@@ -105,21 +140,14 @@ class AddFormation  extends Component {
         console.log(e);
     }
 
-    handleSubmit(e) {
-        e.preventDefault();
-        let resetFormation = {};
-        e.target.reset();
-        this.setState({...resetFormation});
- 
-    }
-
     render() {
         const { formation } = this.state;
-
+        
         return (
             <div className="formation-container">
                 <form onSubmit={this.submitHandler.bind(this)}>
                     <div className="add-formation">
+
                         <div className="div-info-formation">
                                 <label htmlFor="name">Nom de la formation: </label>
                                 <input

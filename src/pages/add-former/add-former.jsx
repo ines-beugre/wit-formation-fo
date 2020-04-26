@@ -11,7 +11,6 @@ export class AddFormer extends Component {
     
     render() {
         const { former } = this.props;
-        console.log('former', former);
 
         return (
             <div className="add-former">

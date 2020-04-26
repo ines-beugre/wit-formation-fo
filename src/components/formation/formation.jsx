@@ -77,7 +77,6 @@ class Formation extends Component {
                                     {
                                         modules &&
                                         modules.map((module) => {
-                                            console.log('module', module)
 
                                             let i = modules.indexOf(module);
                                             return (
@@ -89,11 +88,11 @@ class Formation extends Component {
                                                                 <div className="content">
                                                                     <div className="content-hour">
                                                                         <div className="content-start">
-                                                                            {moment(module.startTime).format('LT')}
+                                                                            {moment(module.startTime).format('HH:mm')}
                                                                         </div>
 
                                                                         <div className="content-end">
-                                                                            {moment(module.endTime).format('LT')}
+                                                                            {moment(module.endTime).format('HH:mm')}
                                                                         </div>
                                                                     </div>
 
@@ -143,7 +142,7 @@ class Formation extends Component {
                                     }
                                     <div className="formation-place">
                                         <div>
-                                            <i className="fas fa-map-marker-alt"></i>
+                                            <i className="fas fa-map-marker-alt"></i> &nbsp;&nbsp;   
                                             {formation.place}
                                         </div>
                                     </div>

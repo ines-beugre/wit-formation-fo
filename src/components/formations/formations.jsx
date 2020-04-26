@@ -53,7 +53,6 @@ class Formations extends React.Component {
             ? filteredFormations
             : filteredFormations.filter(filteredFormation => 
                 filteredFormation.name.toLowerCase().includes(e.toLocaleLowerCase()))
-        console.log('results', results)
         return results;
     } 
 
@@ -61,11 +60,7 @@ class Formations extends React.Component {
         const { isPending } = this.props;
         const e = this.state.searchTerm;
         const filteredFormations = this.filteredFormations();
-        console.log('filt-form', filteredFormations)
-
         const results = this.handleResults(e);
-        console.log('result', results);
-        // const results = this.handleResults();
 
         return (
             <div className="formations">
@@ -77,7 +72,6 @@ class Formations extends React.Component {
                             filteredFormations = {filteredFormations} 
                             handleResults = {this.handleResults}
                             />
-                        {/* <SeachBarClass filteredFormations = {filteredFormations} handleSearch = { this.handleSearch}/> */}
 
                         {/* <div className="div-search">
                             <input
@@ -104,24 +98,9 @@ class Formations extends React.Component {
                     }
                 </div>
 
-                {/* <div className="liste-formations">
-                    {
-                        isPending ?
-                            <IsPending className="formations-pending"/> :
-                        filteredFormations && filteredFormations.length ?
-                        filteredFormations.map((formation) => <LigneFormation key = { formation.id }
-                                                                                        formation = { formation } />)
-                                :
-                                <span>Aucun résultat</span>
-                         
-                    }
-                </div> */}
             </div>
-
         )
     }
-
-
 }
 
 const mapStateToProps = (state) => {

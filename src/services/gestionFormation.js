@@ -15,7 +15,6 @@ class GestionFormation extends Component {
     list() {
       return  axios.get(this.state.url)
         .then(formations =>{
-          console.log(formations.data)
           return formations.data
         })
         .catch(err => {

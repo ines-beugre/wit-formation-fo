@@ -45,7 +45,7 @@
     font-family: "Avenir Next bold", sans-serif;
     font-size: calc(12px + 0.4vw);
     color: 	#F1910C;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
 }
 
 .formations-date {

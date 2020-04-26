@@ -10,15 +10,11 @@ export class AddModule extends Component {
     }
 
     handleChangehour = (field, e) => {
-        let { module } = this.props;
-        let hour = module.startTime;
         this.setState({ [field]: e.target.value })
-
     }
 
     render(){
         const { module } = this.props;
-        console.log('module', module);
 
         return(
             <div className="add-module">
@@ -78,46 +74,5 @@ export class AddModule extends Component {
         )
     }
 }
-
- {/* <TimeField name="startTime" value={module.startTime} onChange={this.changeInputModule} 
-                            style={{
-                                fontSize: '1.0em',
-                                width: 62,
-                                padding: '5px 8px',
-                            }}
-                        /> */}
-
-{/* <div className="add-formation-module">
-                    <label>Heure de début: </label>
-                    <input
-                        className="module-hour"
-                        type="time"
-                        name="start-time"
-                        value={module.startTime}
-                        onChange={e => this.handleChangehour('startTime', e)}
-                    />
-                </div>
-
-               <div className="add-formation-module">
-                    <label>Heure de début: </label>
-                    <input
-                        className="module-hour"
-                        name="start-time"
-                        type="time"
-                        value={module.startTime}
-                        onChange={this.changeInputModule}
-                    />
-                </div>
-
-                <div className="add-formation-module">
-                    <label>Heure de fin: </label>
-                    <input
-                        className="module-hour"
-                        name="end-time"
-                        type="time"
-                        value={module.endTime}
-                        onChange={this.changeInputModule}
-                    />
-                </div> */}
 
               

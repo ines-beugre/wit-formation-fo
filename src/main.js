@@ -1,13 +1,15 @@
 import React from 'react';
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {connect} from "react-redux";
 import wit from './images/wit.png';
 import Formations from './components/formations/formations';
 import Formation from './components/formation/formation';
 import Historique from './components/historique/historique';
 import AddFormation from './pages/add-formation/add-formation';
 import './index.css';
+import Toast from './components/toast/toast.jsx';
 
-export default class Main extends React.Component {
+class Main extends React.Component {
     
     componentDidMount() {
         const header = document.getElementById("myHeader");
@@ -26,6 +28,7 @@ export default class Main extends React.Component {
     }
 
     render() {
+        const { dispatch, toast} = this.props;
         return (
             <div id="body">
                 <Router>
@@ -65,6 +68,16 @@ export default class Main extends React.Component {
                             </nav>
                         </div>
                     </header>
+
+                    {
+                        toast &&
+                            <Toast
+                                type={toast.type} message={toast.message} timeout={toast.timeout}
+                                closeCallback={toast.closeCallback}
+                                dispatch={dispatch}
+                            />
+                    }
+
                     <main>
                         <Route>
                             {/* <Route exact path="/" component={Home}/> */}
@@ -83,5 +96,12 @@ export default class Main extends React.Component {
             </div>
         )
     }
-
 }
+
+const mapStateToProps = (state) => {
+    return {
+        toast: state.toastReducer.toast,
+    }
+}
+
+export default connect(mapStateToProps)(Main);

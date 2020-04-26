@@ -105,7 +105,7 @@ header {
 }
 
 span {
-  text-transform: capitalize;
+  /* text-transform: capitalize; */
 }
 
 .formation-container {

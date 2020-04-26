@@ -66,7 +66,14 @@
     border: 1.594px solid #e6e6e6;
     color: #383D44;
     font-family: "Avenir Next bold", sans-serif;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
+    font-size: 1.0em;
+}
+
+.add-formation input[type=email] {
+    border: 1.594px solid #e6e6e6;
+    color: #383D44;
+    font-family: "Avenir Next bold", sans-serif;
     font-size: 1.0em;
 }
 
@@ -94,7 +101,7 @@
     .div-info-formation input[type=text] [type=date]{
         font-family: "Avenir Next bold", sans-serif;
         color: #383D44;
-        text-transform: capitalize;
+        /* text-transform: capitalize; */
         font-size: 1.0em;
     }
 }
@@ -130,7 +137,7 @@ padding: 7px;
     border: 1.594px solid #e6e6e6;
     color: #383D44;
     font-family: "Avenir Next bold", sans-serif;
-    text-transform: capitalize;
+    /* text-transform: capitalize; */
     font-size: 1.0em;
 }
 
