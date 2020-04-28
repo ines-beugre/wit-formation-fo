@@ -31,7 +31,10 @@ class Formations extends React.Component {
     filteredFormations() {
         let formations  = [];
         //  this.props;
-        formations = this.props.formations
+        formations = this.props.formations;
+        console.log('formations', formations);
+        console.log('this.props.formations', this.props.formations);
+
         let filteredFormations = formations;
         const today = moment(Date.now()).format('YYYY-MM-DD');
         filteredFormations = filteredFormations
