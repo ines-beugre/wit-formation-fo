@@ -16,6 +16,7 @@ class Formations extends React.Component {
         this.filteredFormations = this.filteredFormations.bind(this);
         this.gestionsFormation = new GestionFormation();
         this.state = {
+            formations: [],
             filteredFormations: [],
             filtered: [],
             searchTerm: '',
@@ -28,10 +29,11 @@ class Formations extends React.Component {
     }
 
     filteredFormations() {
-        const { formations } = this.props;
+        let { formations } = [];
+        formations = this.props;
         let filteredFormations = formations;
         const today = moment(Date.now()).format('YYYY-MM-DD');
-        filteredFormations = filteredFormations
+        filteredFormations = filteredFormations && filteredFormations
                                 .filter(formation => formation.date >= today)
                                 .sort(function(a, b){
                                     return !a.name ? 1 : !b.name ? -1 : a.name.toString().localeCompare(b.name);
