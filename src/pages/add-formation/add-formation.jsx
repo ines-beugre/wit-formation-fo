@@ -8,6 +8,7 @@ import { AddFormer } from '../add-former/add-former';
 import { AddModule } from '../add-module/add-module';
 import moment from "moment";
 import 'moment/locale/fr';
+import { getFormation } from '../../redux/formations/dispath';
 
 const defaultFormation = {
     name: "",
@@ -53,6 +54,10 @@ class AddFormation  extends Component {
         }
     }
 
+    componentDidMount() {
+        this.props.dispatch(getFormation(this.props.match.params.id));
+    }
+
     changeHandler = (e) => {
         let formation = this.state.formation;
         formation[e.currentTarget.name] = e.currentTarget.value;
@@ -70,12 +75,6 @@ class AddFormation  extends Component {
         };
         reader.readAsDataURL(files[0]);
     };
-
-    submitHandler = async (e) => {
-        e.preventDefault();
-        e.target.reset();
-        this.checkForm();
-    }
     
     checkDate = (formation) => {
         const today = moment(Date.now()).format('YYYY-MM-DD');
@@ -99,8 +98,9 @@ class AddFormation  extends Component {
     };
 
     checkForm() {
-        const {formation} = this.state;
-        const {dispatch} = this.props;
+        const { formation } = this.state;
+        const {dispatch } = this.props;
+        const isFormationIsPresent = formation.id;
         const error = this.checkDate(formation);
 
         if(error) {
@@ -109,7 +109,7 @@ class AddFormation  extends Component {
                     "error",
                     error));
         } else {
-            this.addFormation();
+            isFormationIsPresent ? this.addFormation() : this.updateFormation();
         }
     }
 
@@ -117,10 +117,10 @@ class AddFormation  extends Component {
         const { formation } = this.state;
         const { dispatch } = this.props;
         dispatch(addFormation(formation))
-        .then(() => {
-            this.setState({formation: defaultFormation
+            .then(() => {
+                this.setState({formation: defaultFormation
+                })
             })
-        })
     }
 
     changeInputAddFormer = (e, index) => {
@@ -140,11 +140,22 @@ class AddFormation  extends Component {
         console.log(e);
     }
 
+    submitHandler = async (e) => {
+        e.preventDefault();
+        e.target.reset();
+        this.checkForm();
+    }
+
     render() {
         const { formation } = this.state;
-        
-        return (
+        const isFormationIsPresent = formation.id;
+
+        console.log('present?: ', isFormationIsPresent);
+         return (
             <div className="formation-container">
+                {
+                    isFormationIsPresent ? <h3>Mettre à jour une formation</h3> : <h3>Ajouter une formation</h3>
+                }
                 <form onSubmit={this.submitHandler.bind(this)}>
                     <div className="add-formation">
 
@@ -347,7 +358,9 @@ class AddFormation  extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        formations: state.formationsReducer.formations
+        formations: state.formationsReducer.formations,
+        formation: state.formationsReducer.formation,
+        isPending: state.formationsReducer.isPending,
     }
 }
 export default connect(mapStateToProps)(AddFormation);

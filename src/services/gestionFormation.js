@@ -35,18 +35,42 @@ class GestionFormation extends Component {
         });
     }
 
+    // .post('http://localhost:8080/api/formations', formation)
+
     add(formation) {
       console.log('form-to-add', formation);
       return  axios
-        .post('http://localhost:8080/api/formations', formation)
+        .post(this.state.url, formation)
         .then(response => {
             console.log('response', response)
         })
         .catch(err => {
             console.log(err);
-            this.setState({ errorMsg: 'Erreur pendant l\'ajout d\'une méthode.'});
+            this.setState({ errorMsg: 'Erreur pendant l\'ajout d\'une formation.'});
         });
     }
+
+    update(formation) {
+      console.log('form-to-update', formation);
+      return axios.put('http://localhost:8080/api/formations', formation, {
+            method: 'PUT',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+           body: JSON.stringify({
+               formation: formation
+           })
+        })
+        .then(response => {
+          console.log('response', response)
+        })
+        .catch(err => {
+          console.log('err-update-formation', err);
+          this.setState({ errorMsg: 'Erreur pendant la mise à jour d\'une formation.'});
+        })
+    }
+
 }
 
 export default GestionFormation;

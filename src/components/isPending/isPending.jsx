@@ -1,9 +1,9 @@
 import React from 'react';
 import './isPending.css';
 import '@fortawesome/fontawesome';
-import fontawesome from '@fortawesome/fontawesome'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSpinner } from '@fortawesome/fontawesome-free-solid'
+import fontawesome from '@fortawesome/fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSpinner } from '@fortawesome/fontawesome-free-solid';
 
 fontawesome.library.add(faSpinner);
 

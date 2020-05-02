@@ -56,3 +56,32 @@ export const addFormation = (formation) => {
             })
     }
 }
+
+export const updateFormation = (formation) => {
+    console.log('hello')
+    return (dispatch) => {
+        dispatch(actions.showPending(true));
+        return gestionFormation.update(formation)
+            .then(formation =>  {
+                dispatch(actions.showFormation(formation));
+                dispatch(actions.showPending(false));
+            })
+                    
+            
+            //     {
+            //     console.log('response', response)
+            //     response.json()
+            //         .then((formationToUpdate) => {
+            //             dispatch(actions.showFormation(formationToUpdate));
+            //             dispatch(actions.showPending(false));
+            //         })
+            //         return Promise.resolve(response);
+            // }
+            
+            .catch((err) => {
+                console.log(err);
+                dispatch(actions.showPending(false));
+                return Promise.reject(err);
+            })
+    }
+}

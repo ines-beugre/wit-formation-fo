@@ -7,6 +7,14 @@ import GestionFormation from '../../services/gestionFormation';
 import IsPending from '../isPending/isPending';
 import { connect } from 'react-redux';
 import { getFormation } from '../../redux/formations/dispath';
+import '@fortawesome/fontawesome';
+import fontawesome from '@fortawesome/fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPencilAlt} from '@fortawesome/fontawesome-free-solid';
+import { faCheckSquare, faCoffee } from '@fortawesome/fontawesome-free-solid'
+import { Link } from 'react-router-dom';
+
+fontawesome.library.add(faPencilAlt);
 
 //import wit from './images/wit.png';
 
@@ -43,13 +51,18 @@ class Formation extends Component {
         this.props.dispatch(getFormation(this.props.match.params.id));
     }
 
+    updateFormation() {
+        console.log('update formation')
+    }
 
     render() {
         const { formation, isPending } = this.props;
         const modules = formation.modules;
         console.log('modules', modules)
         const formers = formation.formers;
-
+        const id = formation && formation.id;
+        console.log('id', id);
+        
         return (
             <div>
                 <div className="formation-container">
@@ -58,7 +71,16 @@ class Formation extends Component {
                         <IsPending className="formations-pending"/>
                         :
                         <div className="formation">
+                            
                             <div>
+                                <div>
+                                <Link to={`/formation/update/${formation.id}`}>
+                                    <FontAwesomeIcon 
+                                        className = "fa-pencil"
+                                        icon = "pencil-alt"
+                                    />
+                                </Link>
+                                </div>
 
                                 <div className="formation-theme-date">
                                     <div className="formation-name">{formation.name}</div>

@@ -2,7 +2,7 @@
 .formation {
     justify-content: center;
     margin: 15px auto;
-    font-size: 3vw;
+    font-size: 2.5vw;
     font-weight: bold;
     flex-wrap: wrap;
     flex-direction: row;
@@ -294,6 +294,10 @@
     font-size: calc(8px + 0.4vw);
     width: 50%;
 
+}
+
+.fa-pencil {
+    color: gray;
 }
 
 .formation-suscriber {

@@ -8,6 +8,7 @@ import Historique from './components/historique/historique';
 import AddFormation from './pages/add-formation/add-formation';
 import './index.css';
 import Toast from './components/toast/toast.jsx';
+import UpdateFormation from './components/update-formation/update-formation';
 
 class Main extends React.Component {
     
@@ -85,6 +86,7 @@ class Main extends React.Component {
                             <Route exact path="/formations" component={Formations}/>
                             <Route exact path="/formations/:id" component={Formation}/>
                             <Route exact path="/formation/add" component={AddFormation}/>
+                            <Route exact path="/formation/update/:id" component={UpdateFormation}/>
                             <Route exact path="/historique" component={Historique}/>
                         </Route>
                     </main>
