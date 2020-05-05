@@ -7,10 +7,8 @@ class GestionFormation extends Component {
     constructor(props) {
       super(props);
       this.state = {
-        // url: 'https://wit-enterprise-bo.herokuapp.com/api/formations',
-
-
-        url: 'http://localhost:8080/api/formations',
+        url: 'https://wit-enterprise-bo.herokuapp.com/api/formations',
+        // url: 'http://localhost:8080/api/formations',
         errorMsg: '', 
       }
     };
