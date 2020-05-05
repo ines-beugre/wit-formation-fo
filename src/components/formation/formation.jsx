@@ -11,7 +11,6 @@ import '@fortawesome/fontawesome';
 import fontawesome from '@fortawesome/fontawesome';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPencilAlt} from '@fortawesome/fontawesome-free-solid';
-import { faCheckSquare, faCoffee } from '@fortawesome/fontawesome-free-solid'
 import { Link } from 'react-router-dom';
 
 fontawesome.library.add(faPencilAlt);

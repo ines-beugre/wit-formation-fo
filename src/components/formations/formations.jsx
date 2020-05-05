@@ -16,24 +16,18 @@ class Formations extends React.Component {
         this.filteredFormations = this.filteredFormations.bind(this);
         this.gestionsFormation = new GestionFormation();
         this.state = {
-            formations: [],
-            filteredFormations: [],
-            filtered: [],
             searchTerm: '',
-            setSearchTerm: '',
         }
     }
 
     componentDidMount() {
         this.props.dispatch(getFormations());
+        
     }
 
     filteredFormations() {
         let formations  = [];
-        //  this.props;
         formations = this.props.formations;
-        console.log('formations', formations);
-        console.log('this.props.formations', this.props.formations);
 
         let filteredFormations = formations;
         const today = moment(Date.now()).format('YYYY-MM-DD');
@@ -41,54 +35,37 @@ class Formations extends React.Component {
                                 .filter(formation => formation.date >= today)
                                 .sort(function(a, b){
                                     return !a.name ? 1 : !b.name ? -1 : a.name.toString().localeCompare(b.name);
-                                })        
+                                }) 
         return filteredFormations;
     }
 
-    // handleSearch = (event) => {
-    //     const props = this.props;
-    //     const target = event.target;
-    //     const value = target.value;
-    //     const name = target.name;
-    //     props.dispatch(actions.setFilters({...props.filters, [name]: value}));
-    // }
-
-    handleResults = (e) => {
-        const filteredFormations = this.filteredFormations();       
+    search = (e) => {
+        const filteredFormations = this.filteredFormations();  
         const results = !e
             ? filteredFormations
             : filteredFormations.filter(filteredFormation => 
-                filteredFormation.name.toLowerCase().includes(e.toLocaleLowerCase()))
-        return results;
+                filteredFormation.name.toLowerCase().includes(e.toLowerCase()));
+                return results;
+    }
+
+    handleResults = (e) => {
+        this.setState({searchTerm: e});
     } 
+
 
     render () {
         const { isPending } = this.props;
-        const e = this.state.searchTerm;
-        const filteredFormations = this.filteredFormations();
-        const results = this.handleResults(e);
+        const searchTerm = this.state.searchTerm;
+        const results = this.search(searchTerm);
 
         return (
             <div className="formations">
                 <h1>Liste de formations à venir</h1>
-
                 
-                    <div className="seach-bar">
-                        <SeachBar 
-                            filteredFormations = {filteredFormations} 
-                            handleResults = {this.handleResults}
-                            />
-
-                        {/* <div className="div-search">
-                            <input
-                                id="input-search"
-                                className="input-search" type="text"
-                                placeholder="Nom, thème, formateur"
-                                name="search"
-                                value={filters.search}
-                                onChange={this.handleSearch}
-                            />
-                        </div> */}
+                <div className="seach-bar">
+                    <SeachBar 
+                        handleResults = {this.handleResults}
+                    />
                 </div>
 
                 <div className="liste-formations">

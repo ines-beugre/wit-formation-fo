@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import IsPending from '../isPending/isPending';
 import { connect } from 'react-redux';
-import { getFormation, updateFormation } from '../../redux/formations/dispath';
+import { getFormation } from '../../redux/formations/dispath';
 import './update-formation.css';
 import GestionFormation from '../../services/gestionFormation';
-import axios from 'axios';
 
 const getService = new GestionFormation();
 
